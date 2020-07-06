@@ -81,8 +81,7 @@ class CustomPendulum(gym.Env):
 
     def reset(self):
         high = np.array([np.pi, 1])
-        self.state = np.random.uniform(low=0, high=0.01*high)
-        self.state[0] += -np.pi
+        self.state = np.random.uniform(-high, high)
         self.last_u = None
         return self._get_obs()
 
