@@ -40,3 +40,8 @@ the figure below.
 <p align="center">
   <img src="pendulum.png" width="500" title="logo">
 </p>
+
+## References
+
+The following excellent open-source projects: https://github.com/nrontsis and 
+https://github.com/aidanscannell/pilco-tensorflow proved to be highly valuable references. 
