@@ -83,12 +83,16 @@ def gen_pilco_trajectory(env, pilco, timesteps, render=False):
             env.render()
         u = pilco.compute_action(current_state[None, :])[0, :]
         new_state, r, done, _ = env.step(u)
+        for i in range(3):
+            x_new, r, done, _ = env.step(u)
+            ep_return += r
+            if done:
+                break
         print("Action: ", u)
         print("State: ", new_state)
-        print("Return: ", ep_return)
         X.append(np.hstack((current_state, u)))
         Y.append(new_state - current_state)
-        ep_return += r
+        print("Return: ", ep_return)
         current_state = new_state
 
         if done:
