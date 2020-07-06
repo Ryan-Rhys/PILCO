@@ -25,8 +25,6 @@ class CustomPendulum(gym.Env):
 
     https://github.com/openai/gym/blob/master/gym/envs/classic_control/pendulum.py
 
-    The only difference is in the reset method.
-
     """
     metadata = {
         'render.modes': ['human', 'rgb_array'],
@@ -81,7 +79,9 @@ class CustomPendulum(gym.Env):
 
     def reset(self):
         high = np.array([np.pi, 1])
-        self.state = np.random.uniform(-high, high)
+        #self.state = np.random.uniform(-high, high)
+        self.state = np.random.uniform(low=0, high=0.01*high) # only difference
+        self.state[0] += -np.pi
         self.last_u = None
         return self._get_obs()
 

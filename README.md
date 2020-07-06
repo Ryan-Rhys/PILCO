@@ -34,14 +34,16 @@ The example may be run as follows:
 python pendulum_example.py
 ```
 
-where the default hyperparameter values have been configures to (hopefully!) reproduce
-the figure below.
+where the default hyperparameter values have been configured to produce a plot resembling the
+one below. Random seeds are not fixed and so different plots will be obtained every time
+the script is run. There is considerable scope for hyperparameter tuning!
 
 <p align="center">
-  <img src="pendulum.png" width="500" title="logo">
+  <img src="plots/pendulum_returns.png" width="500" title="logo">
 </p>
 
 ## References
 
 The following excellent open-source projects: https://github.com/nrontsis and 
-https://github.com/aidanscannell/pilco-tensorflow proved to be highly valuable references. 
+https://github.com/aidanscannell/pilco-tensorflow proved to be highly valuable references.
+ 

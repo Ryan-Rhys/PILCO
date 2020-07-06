@@ -49,10 +49,10 @@ def main(num_init_episodes, num_init_timesteps, num_rbf_functions, u_max, horizo
 
     for seed in range(seed_range):
 
-        # initialize the Custom Pendulum environment and fix the random seed
+        # initialize the Custom Pendulum environment. The random seeds won't actually display fixed behaviour as the
+        # environment seed is not being set. Rather different outcomes will be obtained on every run.
 
         env = CustomPendulum()
-        env.action_space.np_random.seed(seed)
 
         state_dim = env.observation_space.shape[0]
         action_dim = env.action_space.shape[0]
@@ -122,17 +122,17 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-nie', '--num_init_episodes', type=int, default=4,
+    parser.add_argument('-nie', '--num_init_episodes', type=int, default=3,
                         help='Number of episodes to generate intialization data')
-    parser.add_argument('-nit', '--num_init_timesteps', type=int, default=40,
+    parser.add_argument('-nit', '--num_init_timesteps', type=int, default=30,
                         help='Maximum number of timesteps per episode to generate intialization data')
     parser.add_argument('-nrf', '--num_rbf_functions', type=int, default=30,
                         help='The number of radial basis functions to use in the determinstic GP controller.')
     parser.add_argument('-u', '--u_max', type=float, default=2.0,
                         help='Bound for squashing function applied to action distribution')
-    parser.add_argument('-h', '--horizon', type=int, default=30,
+    parser.add_argument('-ho', '--horizon', type=int, default=30,
                         help='Controller horizon')
-    parser.add_argument('-ps', '--pilco_steps', type=int, default=40,
+    parser.add_argument('-ps', '--pilco_steps', type=int, default=30,
                         help='Number of timesteps to run PILCO trajectories for')
     parser.add_argument('-ne', '--num_episodes', type=int, default=8,
                         help='Number of episodes following initialization to run PILCO for')
@@ -140,7 +140,7 @@ if __name__ == '__main__':
                         help='Number of random restarts for optimizers')
     parser.add_argument('-mx', '--maxiter', type=int, default=50,
                         help='Max number of iterations for optimizers')
-    parser.add_argument('-sr', '--seed_range', type=int, default=5,
+    parser.add_argument('-sr', '--seed_range', type=int, default=3,
                         help='number of random seeds to average over')
     parser.add_argument('-j', '--jitter', type=float, default=1e-4,
                         help='Jitter level for GP models')
