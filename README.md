@@ -39,7 +39,7 @@ one below. Random seeds are not fixed and so different plots will be obtained ev
 the script is run. There is considerable scope for hyperparameter tuning!
 
 <p align="center">
-  <img src="pendulum_returns.png" width="500" title="logo">
+  <img src="plots/pendulum_returns.png" width="500" title="logo">
 </p>
 
 ## References
